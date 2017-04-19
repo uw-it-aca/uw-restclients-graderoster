@@ -1,0 +1,2 @@
+include uw_sws_graderoster/VERSION
+recursive-include uw_sws_graderoster *
