@@ -26,8 +26,6 @@ setup(
                       'UW-RestClients-SWS<1.0',
                       'UW-RestClients-PWS<1.0',
                       'mock',
-                      'python-dateutil',
-                      'pytz',
                       'lxml',
                       'Jinja2',
                      ],
