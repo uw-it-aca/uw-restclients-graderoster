@@ -67,9 +67,3 @@ class GradeRosterItem(models.Model):
     def __eq__(self, other):
         return (self.student_uwregid == other.student_uwregid and
                 self.duplicate_code == other.duplicate_code)
-
-
-class GradeSubmissionDelegate(models.Model):
-    person = models.ForeignKey(Person,
-                               on_delete=models.PROTECT)
-    delegate_level = models.CharField(max_length=20)
