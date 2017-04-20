@@ -1,8 +1,9 @@
 from uw_pws import PWS
 from uw_sws import encode_section_label
+from uw_sws.models import GradeSubmissionDelegate
 from uw_sws_graderoster.dao import SWS_GradeRoster_DAO
+from uw_sws_graderoster.models import GradeRoster, GradeRosterItem
 from restclients_core.exceptions import DataFailureException
-from uw_sws.models import GradeRoster, GradeRosterItem, GradeSubmissionDelegate
 from lxml import etree
 import re
 
