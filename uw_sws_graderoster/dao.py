@@ -2,6 +2,7 @@ from uw_sws.dao import SWS_DAO
 from commonconf import settings
 from lxml import etree
 import random
+import re
 
 
 class SWS_GradeRoster_DAO(SWS_DAO):

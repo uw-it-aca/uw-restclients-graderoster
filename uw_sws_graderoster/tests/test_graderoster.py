@@ -1,12 +1,12 @@
-import random
-import re
 from unittest import TestCase
-from uw_sws.util import fdao_sws_override
 from uw_pws.util import fdao_pws_override
-from uw_sws.graderoster import get_graderoster, update_graderoster
+from uw_sws.util import fdao_sws_override
 from uw_sws.section import get_section_by_label
 from uw_sws.models import Section
+from uw_sws_graderoster import get_graderoster, update_graderoster
 from restclients_core.exceptions import DataFailureException
+import random
+import re
 
 
 @fdao_pws_override
