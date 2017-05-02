@@ -1,11 +1,16 @@
 from uw_sws.dao import SWS_DAO
 from commonconf import settings
+from os.path import abspath, dirname
 from lxml import etree
 import random
+import os
 import re
 
 
 class SWS_GradeRoster_DAO(SWS_DAO):
+    def service_mock_paths(self):
+        return [abspath(os.path.join(dirname(__file__), 'resources'))]
+
     def _custom_headers(self, method, url, headers, body):
         pass
 
