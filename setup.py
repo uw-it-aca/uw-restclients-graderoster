@@ -26,7 +26,7 @@ setup(
                       'UW-RestClients-SWS>=1.0',
                       'UW-RestClients-PWS<1.0',
                       'mock',
-                      'lxml==3.7.3',
+                      'lxml==2.3.6',
                       'Jinja2',
                      ],
     license='Apache License, Version 2.0',
