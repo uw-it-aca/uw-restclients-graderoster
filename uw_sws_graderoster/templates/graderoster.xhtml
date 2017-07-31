@@ -1,12 +1,12 @@
 <html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>Grade Roster {{graderoster.section.term.year}} {{graderoster.section.term.quarter}} {{graderoster.section.curriculum_abbr}} {{graderoster.section.course_number}} {{graderoster.section.section_id}}</title>
+        <title>Grade Roster {{graderoster.section.term.year}} {{graderoster.section.term.quarter}} {{graderoster.section.curriculum_abbr|escape}} {{graderoster.section.course_number}} {{graderoster.section.section_id}}</title>
     </head>
     <body>
         <div class="graderoster">
             <div>
                 Section:
-                <a class="section" rel="section" href="/student/v5/course/{{section_id}}"><span class="year">{{graderoster.section.term.year}}</span> <span class="quarter">{{graderoster.section.term.quarter}}</span> <span class="curriculum_abbreviation">{{graderoster.section.curriculum_abbr}}</span> <span class="course_number">{{graderoster.section.course_number}}</span> <span class="section_id">{{graderoster.section.section_id}}</span></a></div>
+                <a class="section" rel="section" href="/student/v5/course/{{graderoster.section.term.year}},{{graderoster.section.term.quarter}},{{graderoster.section.curriculum_abbr|urlencode}},{{graderoster.section.course_number}}/{{graderoster.section.section_id}}"><span class="year">{{graderoster.section.term.year}}</span> <span class="quarter">{{graderoster.section.term.quarter}}</span> <span class="curriculum_abbreviation">{{graderoster.section.curriculum_abbr|escape}}</span> <span class="course_number">{{graderoster.section.course_number}}</span> <span class="section_id">{{graderoster.section.section_id}}</span></a></div>
             <div>
                 Instructor:
                 <a class="person" rel="instructor" href="/student/v5/person/{{graderoster.instructor.uwregid}}"><span class="name">{{graderoster.instructor.surname}},{{graderoster.instructor.first_name}}</span> - <span class="reg_id">{{graderoster.instructor.uwregid}}</span></a></div>
@@ -44,7 +44,7 @@
                     {% if item.section_id != graderoster.section.section_id %}
                     <div>
                         Linked Section:
-                        <a class="section" rel="secondary" href="/student/v5/course/{{graderoster.section.term.year}},{{graderoster.section.term.quarter}},{{graderoster.section.curriculum_abbr}},{{graderoster.section.course_number}}/{{item.section_id}}"><span class="year">{{graderoster.section.term.year}}</span> <span class="quarter">{{graderoster.section.term.quarter}}</span> <span class="curriculum_abbreviation">{{graderoster.section.curriculum_abbr}}</span> <span class="course_number">{{graderoster.section.course_number}}</span> <span class="section_id">{{item.section_id}}</span></a></div>
+                        <a class="section" rel="secondary" href="/student/v5/course/{{graderoster.section.term.year}},{{graderoster.section.term.quarter}},{{graderoster.section.curriculum_abbr|urlencode}},{{graderoster.section.course_number}}/{{item.section_id}}"><span class="year">{{graderoster.section.term.year}}</span> <span class="quarter">{{graderoster.section.term.quarter}}</span> <span class="curriculum_abbreviation">{{graderoster.section.curriculum_abbr|escape}}</span> <span class="course_number">{{graderoster.section.course_number}}</span> <span class="section_id">{{item.section_id}}</span></a></div>
                     {% endif %}
                     <div>
                         Student Former Name:
