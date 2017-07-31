@@ -23,13 +23,9 @@ class GradeRoster(models.Model):
 
     def xhtml(self):
         template_path = os.path.join(os.path.dirname(__file__), "templates/")
-        context = {
-            "graderoster": self,
-            "section_id": self.section.section_label()
-        }
         return Environment(
             loader=FileSystemLoader(template_path)
-        ).get_template("graderoster.xhtml").render(context)
+        ).get_template("graderoster.xhtml").render({"graderoster": self})
 
 
 class GradeRosterItem(models.Model):
