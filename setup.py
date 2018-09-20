@@ -22,16 +22,19 @@ setup(
     author="UW-IT AXDD",
     author_email="aca-it@uw.edu",
     include_package_data=True,
-    install_requires=['UW-RestClients-Core>0.8,<1.0',
-                      'UW-RestClients-SWS>=1.0',
-                      'UW-RestClients-PWS<1.0',
-                      'mock',
-                      'lxml==3.8.0',
-                      'Jinja2',
-                     ],
+    install_requires=[
+        'UW-RestClients-Core>1.0,<2.0',
+        'UW-RestClients-SWS>=2.0.1,<3.0',
+        'UW-RestClients-PWS>=2.0.1,<3.0',
+        'mock',
+        'lxml>=4.2.5',
+        'Jinja2',
+    ],
     license='Apache License, Version 2.0',
-    description=('A library for connecting to the SWS Graderoster API '
-                 'at the University of Washington'),
+    description=(
+        'A library for connecting to the SWS Graderoster API at the '
+        'University of Washington.'
+    ),
     long_description=README,
     url=url,
     classifiers=[
@@ -39,7 +42,6 @@ setup(
         'License :: OSI Approved :: Apache Software License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.6',
     ],
 )
