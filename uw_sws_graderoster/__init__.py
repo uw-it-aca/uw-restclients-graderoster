@@ -7,7 +7,6 @@ from restclients_core.exceptions import DataFailureException
 from lxml import etree
 import re
 
-
 graderoster_url = "/student/v5/graderoster"
 
 
@@ -18,7 +17,7 @@ def get_graderoster(section, instructor, requestor):
     """
     label = GradeRoster(section=section,
                         instructor=instructor).graderoster_label()
-    url = "%s/%s" % (graderoster_url, encode_section_label(label))
+    url = "{}/{}".format(graderoster_url, encode_section_label(label))
     headers = {"Accept": "text/xhtml",
                "Connection": "keep-alive",
                "X-UW-Act-as": requestor.uwnetid}
@@ -40,7 +39,7 @@ def update_graderoster(graderoster, requestor):
     document returned from the update request.
     """
     label = graderoster.graderoster_label()
-    url = "%s/%s" % (graderoster_url, encode_section_label(label))
+    url = "{}/{}".format(graderoster_url, encode_section_label(label))
     headers = {"Content-Type": "application/xhtml+xml",
                "Connection": "keep-alive",
                "X-UW-Act-as": requestor.uwnetid}

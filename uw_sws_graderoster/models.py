@@ -13,13 +13,13 @@ class GradeRoster(models.Model):
     allows_writing_credit = models.NullBooleanField()
 
     def graderoster_label(self):
-        return "%s,%s,%s,%s,%s,%s" % (
-            self.section.term.year,
-            self.section.term.quarter,
-            self.section.curriculum_abbr,
-            self.section.course_number,
-            self.section.section_id,
-            self.instructor.uwregid)
+        return "{year},{qtr},{abbr},{no},{sect},{inst}".format(
+            year=self.section.term.year,
+            qtr=self.section.term.quarter,
+            abbr=self.section.curriculum_abbr,
+            no=self.section.course_number,
+            sect=self.section.section_id,
+            inst=self.instructor.uwregid)
 
     def xhtml(self):
         template_path = os.path.join(os.path.dirname(__file__), "templates/")
@@ -57,7 +57,7 @@ class GradeRosterItem(models.Model):
     def student_label(self, separator=","):
         label = self.student_uwregid
         if self.duplicate_code is not None and len(self.duplicate_code):
-            label += "%s%s" % (separator, self.duplicate_code)
+            label += "{}{}".format(separator, self.duplicate_code)
         return label
 
     def __eq__(self, other):
