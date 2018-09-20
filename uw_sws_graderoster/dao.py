@@ -16,13 +16,13 @@ class SWS_GradeRoster_DAO(SWS_DAO):
 
     def _update_put(self, url, body, response):
         # For developing against crashes in grade submission
-        if re.match('/student/v\d/graderoster/2013,spring,ZERROR,101,S1,',
+        if re.match(r'/student/v\d/graderoster/2013,spring,ZERROR,101,S1,',
                     url):
             response.data = "No employee found for ID 1234567890"
             response.status = 500
 
         # Submitted too late, sad.
-        if re.match('/student/v\d/graderoster/2013,spring,ZERROR,101,S2,',
+        if re.match(r'/student/v\d/graderoster/2013,spring,ZERROR,101,S2,',
                     url):
             response.data = "grading period not active for year/quarter"
             response.status = 404

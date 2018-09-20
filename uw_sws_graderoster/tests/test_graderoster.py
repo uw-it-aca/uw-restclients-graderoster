@@ -20,10 +20,13 @@ class SWSTestGradeRoster(TestCase):
 
         graderoster = get_graderoster(section, instructor, requestor)
 
-        self.assertEquals(graderoster.graderoster_label(),
-                          "2013,summer,CSS,161,A,%s" % instructor.uwregid,
-                          "Correct graderoster_label()")
-        self.assertEquals(len(graderoster.grade_submission_delegates), 2, "Grade submission delegates")
+        self.assertEquals(
+            graderoster.graderoster_label(),
+            "2013,summer,CSS,161,A,{}".format(instructor.uwregid),
+            "Correct graderoster_label()")
+        self.assertEquals(
+            len(graderoster.grade_submission_delegates), 2,
+            "Grade submission delegates")
         self.assertEquals(len(graderoster.items), 5, "GradeRoster items")
 
         grades = ['0.7', None, '3.1', '1.5', '4.0']
@@ -33,9 +36,13 @@ class SWSTestGradeRoster(TestCase):
                   'C7EED7406A7C11D5A4AE0004AC494FFE',
                   'A9D2DDFA6A7D11D5A4AE0004AC494FFE,A']
         for idx, item in enumerate(graderoster.items):
-            self.assertEquals(len(item.grade_choices), 36, "grade_choices returns correct grades")
-            self.assertEquals(item.grade, grades[idx], "Correct default grade")
-            self.assertEquals(item.student_label(), labels[idx], "Correct student label")
+            self.assertEquals(
+                len(item.grade_choices), 36,
+                "grade_choices returns correct grades")
+            self.assertEquals(
+                item.grade, grades[idx], "Correct default grade")
+            self.assertEquals(
+                item.student_label(), labels[idx], "Correct student label")
 
     def test_put_graderoster(self):
         section = get_section_by_label('2013,summer,CSS,161/A')
