@@ -72,7 +72,7 @@ class GradeRosterItem(models.Model):
                 if len(duplicate_code):
                     self.duplicate_code = duplicate_code
             elif classname == "section_id" and el.text is not None:
-                    self.section_id = el.text.strip()
+                self.section_id = el.text.strip()
             elif classname == "student_former_name" and el.text is not None:
                 student_former_name = el.text.strip()
                 if len(student_former_name):
