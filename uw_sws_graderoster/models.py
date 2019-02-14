@@ -49,7 +49,7 @@ class GradeRosterItem(models.Model):
 
         tree = kwargs.get('data')
         if tree is None:
-            return super(GradeRosterItem, self).__init__()
+            return super(GradeRosterItem, self).__init__(*args, **kwargs)
 
         for el in tree.xpath(".//xhtml:a[@rel='student']/*[@class='reg_id']",
                              namespaces=nsmap):
@@ -149,7 +149,7 @@ class GradeRoster(models.Model):
 
         tree = kwargs.get('data')
         if tree is None:
-            return super(GradeRoster, self).__init__()
+            return super(GradeRoster, self).__init__(*args, **kwargs)
 
         pws = PWS()
         people = {self.instructor.uwregid: self.instructor}
