@@ -43,11 +43,11 @@ class GradeRosterItem(models.Model):
                 self.duplicate_code == other.duplicate_code)
 
     def __init__(self, *args, **kwargs):
-        self.section_id = kwargs.get('section_id')
-        self.grade_submitter_person = kwargs.get('grade_submitter_person')
+        self.section_id = kwargs.get("section_id")
+        self.grade_submitter_person = kwargs.get("grade_submitter_person")
         self.grade_choices = []
 
-        tree = kwargs.get('data')
+        tree = kwargs.get("data")
         if tree is None:
             return super(GradeRosterItem, self).__init__(*args, **kwargs)
 
@@ -141,13 +141,13 @@ class GradeRoster(models.Model):
         ).get_template("graderoster.xhtml").render({"graderoster": self})
 
     def __init__(self, *args, **kwargs):
-        self.section = kwargs.get('section')
-        self.instructor = kwargs.get('instructor')
+        self.section = kwargs.get("section")
+        self.instructor = kwargs.get("instructor")
         self.authorized_grade_submitters = []
         self.grade_submission_delegates = []
         self.items = []
 
-        tree = kwargs.get('data')
+        tree = kwargs.get("data")
         if tree is None:
             return super(GradeRoster, self).__init__(*args, **kwargs)
 
@@ -209,3 +209,69 @@ class GradeRoster(models.Model):
                 grade_submitter_person=grade_submitter_person)
 
             self.items.append(gr_item)
+
+
+class GradingScale(models.Model):
+    UNDERGRADUATE_SCALE = "ug"
+    GRADUATE_SCALE = "gr"
+    PASSFAIL_SCALE = "pf"
+    CREDIT_SCALE = "cnc"
+    HIGHPASSFAIL_SCALE = "hpf"
+
+    SCALE_CHOICES = (
+        (UNDERGRADUATE_SCALE, "Undergraduate Scale (4.0-0.7)"),
+        (GRADUATE_SCALE, "Graduate Scale (4.0-1.7)"),
+        (PASSFAIL_SCALE, "School of Medicine Pass/No Pass Scale"),
+        (CREDIT_SCALE, "Credit/No Credit Scale"),
+        (HIGHPASSFAIL_SCALE, "Honors/High Pass/Pass/Fail Scale")
+    )
+
+    GRADE_SCALES = {
+        UNDERGRADUATE_SCALE: [
+            "4.0", "3.9", "3.8", "3.7", "3.6", "3.5", "3.4", "3.3", "3.2",
+            "3.1", "3.0", "2.9", "2.8", "2.7", "2.6", "2.5", "2.4", "2.3",
+            "2.2", "2.1", "2.0", "1.9", "1.8", "1.7", "1.6", "1.5", "1.4",
+            "1.3", "1.2", "1.1", "1.0", "0.9", "0.8", "0.7"],
+        GRADUATE_SCALE: [
+            "4.0", "3.9", "3.8", "3.7", "3.6", "3.5", "3.4", "3.3", "3.2",
+            "3.1", "3.0", "2.9", "2.8", "2.7", "2.6", "2.5", "2.4", "2.3",
+            "2.2", "2.1", "2.0", "1.9", "1.8", "1.7"],
+        PASSFAIL_SCALE: ["P", "F"],
+        CREDIT_SCALE: ["CR", "NC"],
+        HIGHPASSFAIL_SCALE: ["H", "HP", "P", "F"],
+    }
+
+    # Controls sort order for all valid grades, including mixed sorting
+    # with 4.0 scale grades
+    GRADE_ORDER = {
+        "": "9.9", "I": "9.8", "W": "9.7", "HW": "9.5", "H": "7.3",
+        "HP": "7.2", "P": "7.1", "F": "7.0", "CR": "6.1", "NC": "6.0", "N": "5"
+    }
+
+    def sorted_scale(self, grade_scale):
+        return sorted([str(x).upper() for x in grade_scale],
+                      key=lambda x: self.GRADE_ORDER.get(x, x),
+                      reverse=True)
+
+    def is_undergraduate_scale(self, grade_scale):
+        return self._is_scale(grade_scale, self.UNDERGRADUATE_SCALE)
+
+    def is_graduate_scale(self, grade_scale):
+        return self._is_scale(grade_scale, self.GRADUATE_SCALE)
+
+    def is_passfail_scale(self, grade_scale):
+        return self._is_scale(grade_scale, self.PASSFAIL_SCALE)
+
+    def is_credit_scale(self, grade_scale):
+        return self._is_scale(grade_scale, self.CREDIT_SCALE)
+
+    def is_highpassfail_scale(self, grade_scale):
+        return self._is_scale(grade_scale, self.HIGHPASSFAIL_SCALE)
+
+    def is_any_scale(self, grade_scale):
+        for scale in self.GRADE_SCALES.keys():
+            if self._is_scale(grade_scale, scale):
+                return scale
+
+    def _is_scale(self, grade_scale, scale):
+        return self.sorted_scale(grade_scale) == self.GRADE_SCALES[scale]
