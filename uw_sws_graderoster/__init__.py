@@ -26,9 +26,8 @@ def get_graderoster(section, instructor, requestor):
         msg = root.find(".//*[@class='status_description']").text.strip()
         raise DataFailureException(url, response.status, msg)
 
-    return GradeRoster(data=etree.fromstring(response.data.strip()),
-                       section=section,
-                       instructor=instructor)
+    return GradeRoster.from_xhtml(etree.fromstring(response.data.strip()),
+                                  section=section, instructor=instructor)
 
 
 def update_graderoster(graderoster, requestor):
@@ -51,6 +50,6 @@ def update_graderoster(graderoster, requestor):
         msg = root.find(".//*[@class='status_description']").text.strip()
         raise DataFailureException(url, response.status, msg)
 
-    return GradeRoster(data=etree.fromstring(response.data.strip()),
-                       section=graderoster.section,
-                       instructor=graderoster.instructor)
+    return GradeRoster.from_xhtml(etree.fromstring(response.data.strip()),
+                                  section=graderoster.section,
+                                  instructor=graderoster.instructor)
