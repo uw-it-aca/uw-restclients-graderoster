@@ -6,7 +6,6 @@ See the README on `GitHub
 <https://github.com/uw-it-aca/uw-restclients-graderoster>`_.
 """
 
-# The VERSION file is created by travis-ci, based on the tag name
 version_path = 'uw_sws_graderoster/VERSION'
 VERSION = open(os.path.join(os.path.dirname(__file__), version_path)).read()
 VERSION = VERSION.replace("\n", "")
@@ -23,11 +22,11 @@ setup(
     author_email="aca-it@uw.edu",
     include_package_data=True,
     install_requires=[
-        'UW-RestClients-Core>1.0,<2.0',
-        'UW-RestClients-SWS>=2.0.1,<3.0',
-        'UW-RestClients-PWS>=2.0.1,<3.0',
+        'UW-RestClients-Core~=1.3',
+        'UW-RestClients-SWS~=2.3',
+        'UW-RestClients-PWS~=2.1',
         'mock',
-        'lxml>=4.2.5,<4.3',
+        'lxml~=4.2',
         'Jinja2',
     ],
     license='Apache License, Version 2.0',
