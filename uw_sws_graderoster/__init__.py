@@ -1,3 +1,6 @@
+# Copyright 2021 UW-IT, University of Washington
+# SPDX-License-Identifier: Apache-2.0
+
 from uw_sws import encode_section_label
 from uw_sws_graderoster.dao import SWS_GradeRoster_DAO
 from uw_sws_graderoster.models import GradeRoster
