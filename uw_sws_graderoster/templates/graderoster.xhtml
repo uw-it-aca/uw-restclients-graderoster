@@ -34,7 +34,7 @@
             </div>
             <ul class="graderoster_items">{% for item in graderoster.items %}
                 <li class="graderoster_item">
-                    <h1>{{item.student_surname|escape if item.student_surname is not none else ''|escape}},{{item.student_first_name|escape if item.student_first_name is not none else ''}}</h1>
+                    <h1>{{item.student_surname|escape if item.student_surname is not none else ''}},{{item.student_first_name|escape if item.student_first_name is not none else ''}}</h1>
                     <div>
                         <a class="person" rel="student" href="/student/v5/person/{{item.student_uwregid}}"><span class="name">{{item.student_surname|escape if item.student_surname is not none else ''}},{{item.student_first_name|escape if item.student_first_name is not none else ''}}</span> - <span class="reg_id">{{item.student_uwregid}}</span></a>
                     </div>
