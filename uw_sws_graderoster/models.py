@@ -139,7 +139,7 @@ class GradeRoster(models.Model):
     def xhtml(self):
         template_path = os.path.join(os.path.dirname(__file__), "templates/")
         return Environment(
-            loader=FileSystemLoader(template_path)
+            loader=FileSystemLoader(template_path), autoescape=True
         ).get_template("graderoster.xhtml").render({"graderoster": self})
 
     def __init__(self, *args, **kwargs):

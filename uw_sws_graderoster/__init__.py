@@ -29,8 +29,12 @@ def get_graderoster(section, instructor, requestor):
         msg = root.find(".//*[@class='status_description']").text.strip()
         raise DataFailureException(url, response.status, msg)
 
-    return GradeRoster.from_xhtml(etree.fromstring(response.data.strip()),
-                                  section=section, instructor=instructor)
+    try:
+        root = etree.fromstring(response.data.strip())
+    except etree.XMLSyntaxError as ex:
+        raise DataFailureException(url, response.status, ex)
+
+    return GradeRoster.from_xhtml(root, section=section, instructor=instructor)
 
 
 def update_graderoster(graderoster, requestor):
@@ -53,6 +57,10 @@ def update_graderoster(graderoster, requestor):
         msg = root.find(".//*[@class='status_description']").text.strip()
         raise DataFailureException(url, response.status, msg)
 
-    return GradeRoster.from_xhtml(etree.fromstring(response.data.strip()),
-                                  section=graderoster.section,
+    try:
+        root = etree.fromstring(response.data.strip())
+    except etree.XMLSyntaxError as ex:
+        raise DataFailureException(url, response.status, ex)
+
+    return GradeRoster.from_xhtml(root, section=graderoster.section,
                                   instructor=graderoster.instructor)
