@@ -7,5 +7,5 @@ from uw_sws_graderoster.dao import SWS_GradeRoster_DAO
 
 class SWSGradeRosterTestDao(TestCase):
     def test_custom_headers(self):
-        self.assertEquals(
+        self.assertEqual(
             SWS_GradeRoster_DAO()._custom_headers('GET', '/', {}, None), None)
