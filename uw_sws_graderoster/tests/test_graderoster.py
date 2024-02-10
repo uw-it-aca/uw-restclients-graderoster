@@ -1,4 +1,4 @@
-# Copyright 2021 UW-IT, University of Washington
+# Copyright 2024 UW-IT, University of Washington
 # SPDX-License-Identifier: Apache-2.0
 
 from unittest import TestCase
@@ -23,14 +23,14 @@ class SWSTestGradeRoster(TestCase):
 
         graderoster = get_graderoster(section, instructor, requestor)
 
-        self.assertEquals(
+        self.assertEqual(
             graderoster.graderoster_label(),
             "2013,summer,CSS,161,A,{}".format(instructor.uwregid),
             "Correct graderoster_label()")
-        self.assertEquals(
+        self.assertEqual(
             len(graderoster.grade_submission_delegates), 2,
             "Grade submission delegates")
-        self.assertEquals(len(graderoster.items), 5, "GradeRoster items")
+        self.assertEqual(len(graderoster.items), 5, "GradeRoster items")
 
         grades = ['0.7', None, '3.1', '1.5', '4.0']
         labels = ['1914B1B26A7D11D5A4AE0004AC494FFE',
@@ -39,12 +39,12 @@ class SWSTestGradeRoster(TestCase):
                   'C7EED7406A7C11D5A4AE0004AC494FFE',
                   'A9D2DDFA6A7D11D5A4AE0004AC494FFE,A']
         for idx, item in enumerate(graderoster.items):
-            self.assertEquals(
+            self.assertEqual(
                 len(item.grade_choices), 36,
                 "grade_choices returns correct grades")
-            self.assertEquals(
+            self.assertEqual(
                 item.grade, grades[idx], "Correct default grade")
-            self.assertEquals(
+            self.assertEqual(
                 item.student_label(), labels[idx], "Correct student label")
 
     def test_put_graderoster(self):
@@ -62,7 +62,7 @@ class SWSTestGradeRoster(TestCase):
 
         new_graderoster = update_graderoster(graderoster, requestor)
         new_xhtml = split_xhtml(new_graderoster.xhtml())
-        self.assertEquals(orig_xhtml, new_xhtml, "XHTML is equal")
+        self.assertEqual(orig_xhtml, new_xhtml, "XHTML is equal")
 
     def test_graderoster_with_entities(self):
         section = get_section_by_label('2013,autumn,EDC&I,461/A')
@@ -74,7 +74,7 @@ class SWSTestGradeRoster(TestCase):
         orig_xhtml = split_xhtml(graderoster.xhtml())
         new_graderoster = update_graderoster(graderoster, requestor)
         new_xhtml = split_xhtml(new_graderoster.xhtml())
-        self.assertEquals(orig_xhtml, new_xhtml, "XHTML is equal")
+        self.assertEqual(orig_xhtml, new_xhtml, "XHTML is equal")
 
 
 def split_xhtml(xhtml):
