@@ -46,8 +46,7 @@ class SWSTestGradeRoster(TestCase):
                 item.grade, grades[idx], "Correct default grade")
             self.assertEqual(
                 item.student_label(), labels[idx], "Correct student label")
-            self.assertEqual(
-                item.grade_document_id, "", "Correct grade_document_id")
+            self.assertEqual(item.grade_document_id, "08261300000")
 
     def test_put_graderoster(self):
         section = get_section_by_label('2013,summer,CSS,161/A')
