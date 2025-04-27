@@ -22,12 +22,12 @@ setup(
     author_email="aca-it@uw.edu",
     include_package_data=True,
     install_requires=[
-        'UW-RestClients-Core~=1.4',
-        'UW-RestClients-SWS~=2.4',
-        'UW-RestClients-PWS~=2.1',
+        'uw-restclients-core~=1.4',
+        'uw-restclients-ss~=2.4',
+        'uw-restclients-pws~=2.1',
         'mock',
         'lxml',
-        'Jinja2',
+        'jinja2',
     ],
     license='Apache License, Version 2.0',
     description=(

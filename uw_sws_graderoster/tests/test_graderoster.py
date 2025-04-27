@@ -1,4 +1,4 @@
-# Copyright 2024 UW-IT, University of Washington
+# Copyright 2025 UW-IT, University of Washington
 # SPDX-License-Identifier: Apache-2.0
 
 from unittest import TestCase
@@ -46,6 +46,8 @@ class SWSTestGradeRoster(TestCase):
                 item.grade, grades[idx], "Correct default grade")
             self.assertEqual(
                 item.student_label(), labels[idx], "Correct student label")
+            self.assertEqual(
+                item.grade_document_id, "", "Correct grade_document_id")
 
     def test_put_graderoster(self):
         section = get_section_by_label('2013,summer,CSS,161/A')
