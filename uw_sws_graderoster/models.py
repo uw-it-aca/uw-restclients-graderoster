@@ -1,4 +1,4 @@
-# Copyright 2024 UW-IT, University of Washington
+# Copyright 2025 UW-IT, University of Washington
 # SPDX-License-Identifier: Apache-2.0
 
 from restclients_core import models
@@ -29,6 +29,7 @@ class GradeRosterItem(models.Model):
     grade = models.CharField(max_length=20, null=True, default=None)
     allows_grade_change = models.BooleanField(default=False)
     date_graded = models.DateField(null=True)
+    grade_document_id = models.CharField(max_length=100, null=True)
     grade_submitter_person = models.ForeignKey(
         Person, related_name="grade_submitter", null=True)
     grade_submitter_source = models.CharField(max_length=8, null=True)
