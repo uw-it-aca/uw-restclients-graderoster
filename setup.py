@@ -23,7 +23,7 @@ setup(
     include_package_data=True,
     install_requires=[
         'uw-restclients-core~=1.4',
-        'uw-restclients-ss~=2.4',
+        'uw-restclients-sws~=2.4',
         'uw-restclients-pws~=2.1',
         'mock',
         'lxml',
