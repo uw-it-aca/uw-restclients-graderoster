@@ -50,8 +50,9 @@ class SWSTestGradeRoster(TestCase):
             self.assertEqual(
                 item.student_label(), labels[idx], "Correct student label")
             self.assertEqual(item.grade_document_id, "08261300000")
-            self.assertEqual(item.first_name, first_names[idx], "First name")
-            self.assertEqual(item.surname, surnames[idx], "Surname")
+            self.assertEqual(
+                item.student_first_name, first_names[idx], "First name")
+            self.assertEqual(item.student_surname, surnames[idx], "Surname")
 
     def test_put_graderoster(self):
         section = get_section_by_label('2013,summer,CSS,161/A')
