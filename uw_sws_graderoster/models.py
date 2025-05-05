@@ -59,11 +59,10 @@ class GradeRosterItem(models.Model):
 
         for el in tree.xpath(".//xhtml:a[@rel='student']/*[@class='name']",
                              namespaces=nsmap):
-            full_name = el.text.strip()
             try:
-                (surname, first_name) = full_name.split(",", 1)
-                gr_item.student_first_name = first_name
-                gr_item.student_surname = surname
+                (surname, first_name) = el.text.split(",", 1)
+                gr_item.student_first_name = first_name.strip()
+                gr_item.student_surname = surname.strip()
             except ValueError:
                 pass
 

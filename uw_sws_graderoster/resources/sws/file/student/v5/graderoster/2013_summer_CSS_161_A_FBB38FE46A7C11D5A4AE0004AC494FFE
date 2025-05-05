@@ -35,9 +35,9 @@
       </div>
       <ul class="graderoster_items">
           <li class="graderoster_item">
-          <h1>AVERAGE,CHARLIE</h1>
+          <h1>AVERAGE, CHARLIE</h1>
           <div>
-            <a class="person" rel="student" href="/student/v5/person/1914B1B26A7D11D5A4AE0004AC494FFE"><span class="name">AVERAGE,CHARLIE</span> - <span class="reg_id">1914B1B26A7D11D5A4AE0004AC494FFE</span></a>
+            <a class="person" rel="student" href="/student/v5/person/1914B1B26A7D11D5A4AE0004AC494FFE"><span class="name">AVERAGE, CHARLIE</span> - <span class="reg_id">1914B1B26A7D11D5A4AE0004AC494FFE</span></a>
           </div>
           <div>
           Duplicate code:
@@ -94,9 +94,9 @@
           <span class="message"></span>
         </li>
         <li class="graderoster_item">
-          <h1>AVERAGE,JASON A</h1>
+          <h1>AVERAGE, JASON A </h1>
           <div>
-            <a class="person" rel="student" href="/student/v5/person/511FC8241DC611DB9943F9D03AACCE31"><span class="name">AVERAGE,JASON A</span> - <span class="reg_id">511FC8241DC611DB9943F9D03AACCE31</span></a>
+            <a class="person" rel="student" href="/student/v5/person/511FC8241DC611DB9943F9D03AACCE31"><span class="name">AVERAGE, JASON A </span> - <span class="reg_id">511FC8241DC611DB9943F9D03AACCE31</span></a>
           </div>
           <div>
           Duplicate code:
@@ -153,9 +153,9 @@
           <span class="message"></span>
         </li>
         <li class="graderoster_item">
-          <h1>AVERAGE,STEPHEN J</h1>
+          <h1>AVERAGE, STEPHEN J</h1>
           <div>
-            <a class="person" rel="student" href="/student/v5/person/F00E253C634211DA9755000629C31437"><span class="name">AVERAGE,STEPHEN J</span> - <span class="reg_id">F00E253C634211DA9755000629C31437</span></a>
+            <a class="person" rel="student" href="/student/v5/person/F00E253C634211DA9755000629C31437"><span class="name">AVERAGE, STEPHEN J</span> - <span class="reg_id">F00E253C634211DA9755000629C31437</span></a>
           </div>
           <div>
           Duplicate code:
