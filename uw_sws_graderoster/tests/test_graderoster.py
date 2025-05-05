@@ -38,6 +38,9 @@ class SWSTestGradeRoster(TestCase):
                   'F00E253C634211DA9755000629C31437',
                   'C7EED7406A7C11D5A4AE0004AC494FFE',
                   'A9D2DDFA6A7D11D5A4AE0004AC494FFE,A']
+        surnames = ['AVERAGE', 'AVERAGE', 'AVERAGE', 'AVERAGE', 'TEACHER']
+        first_names = [
+            'CHARLIE', 'JASON A', 'STEPHEN J', 'MICHAEL S.', 'PHIL AVERAGE']
         for idx, item in enumerate(graderoster.items):
             self.assertEqual(
                 len(item.grade_choices), 36,
@@ -47,6 +50,9 @@ class SWSTestGradeRoster(TestCase):
             self.assertEqual(
                 item.student_label(), labels[idx], "Correct student label")
             self.assertEqual(item.grade_document_id, "08261300000")
+            self.assertEqual(
+                item.student_first_name, first_names[idx], "First name")
+            self.assertEqual(item.student_surname, surnames[idx], "Surname")
 
     def test_put_graderoster(self):
         section = get_section_by_label('2013,summer,CSS,161/A')
