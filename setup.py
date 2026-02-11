@@ -18,7 +18,7 @@ setup(
     name='UW-RestClients-Graderoster',
     version=VERSION,
     packages=['uw_sws_graderoster'],
-    author="UW-IT T&LS",
+    author="UW-IT Student & Educational Technology Services",
     author_email="aca-it@uw.edu",
     include_package_data=True,
     install_requires=[

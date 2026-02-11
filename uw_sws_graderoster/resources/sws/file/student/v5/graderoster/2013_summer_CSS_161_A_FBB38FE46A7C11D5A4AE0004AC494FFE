@@ -50,7 +50,7 @@
           <span class="student_number">1250822</span></div>
           <div>
           Student Type:
-          <span class="student_type"></span></div>
+          <span class="student_type">MEDICINE</span></div>
           <div>
           Student Credits:
           <span class="student_credits"> 5.0</span></div>
@@ -109,7 +109,7 @@
           <span class="student_number">1264830</span></div>
           <div>
           Student Type:
-          <span class="student_type"></span></div>
+          <span class="student_type">GRADUATE</span></div>
           <div>
           Student Credits:
           <span class="student_credits"> 5.0</span></div>
@@ -168,7 +168,7 @@
           <span class="student_number">1310071</span></div>
           <div>
           Student Type:
-          <span class="student_type"></span></div>
+          <span class="student_type">UNDERGRAD</span></div>
           <div>
           Student Credits:
           <span class="student_credits"> 5.0</span></div>
@@ -227,7 +227,7 @@
           <span class="student_number">1311656</span></div>
           <div>
           Student Type:
-          <span class="student_type"></span></div>
+          <span class="student_type">GRADUATE</span></div>
           <div>
           Student Credits:
           <span class="student_credits"> 5.0</span></div>
@@ -286,7 +286,7 @@
           <span class="student_number">1311701</span></div>
           <div>
           Student Type:
-          <span class="student_type"></span></div>
+          <span class="student_type">UNDERGRAD</span></div>
           <div>
           Student Credits:
           <span class="student_credits"> 5.0</span></div>
