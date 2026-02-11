@@ -1,4 +1,4 @@
-# Copyright 2025 UW-IT, University of Washington
+# Copyright 2026 UW-IT, University of Washington
 # SPDX-License-Identifier: Apache-2.0
 
 from restclients_core import models
@@ -80,6 +80,8 @@ class GradeRosterItem(models.Model):
                     gr_item.student_former_name = student_former_name
             elif classname == "student_number":
                 gr_item.student_number = el.text.strip()
+            elif classname == "student_type" and el.text is not None:
+                gr_item.student_type = el.text.strip()
             elif classname == "student_credits" and el.text is not None:
                 gr_item.student_credits = el.text.strip()
             elif "date_withdrawn" in classname and el.text is not None:
